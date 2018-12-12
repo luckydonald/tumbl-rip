@@ -1,0 +1,111 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: #36465d;
+      color: #fff;
+      font-family: Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+      font-size: 14px;
+      font-style: normal;
+      text-align: center;
+    }
+    a {
+      text-decoration: underline;
+      color: white;
+    }
+    #cuntdown {
+      border: 0;
+      font-size: 250%;
+      font-weight: normal;
+      min-height: 3em;
+      text-align: center;
+      font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    }
+    strong{
+      font-weight:bold;
+    }
+    .singular {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+<h1>Tumblrggedon</h1>
+<h3>THE END IS NEAR</h3>
+<h5 id="cuntdown"><strong><span class="d">0</span> day<span class="ds">s</span></strong>, <strong><span class="h">0</span> hour<span class="hs">s</span></strong>, <strong><span class="m">0</span> minute<span class="ms">s</span></strong> and <strong><span class="s">0</span> second<span class="ss">s</span></strong></h5>
+<div>
+  <b>An open letter to tumblr</b>
+  <blockquote>
+    Plz dont ruin yourself like that.<br>
+    Stop now. You still can.<br>
+    We will forgive you.<br>
+  </blockquote>
+</div>
+<script>
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.d');
+  var hoursSpan = clock.querySelector('.h');
+  var minutesSpan = clock.querySelector('.m');
+  var secondsSpan = clock.querySelector('.s');
+  var daysPlural = clock.querySelector('.ds');
+  var hoursPlural = clock.querySelector('.hs');
+  var minutesPlural = clock.querySelector('.ms');
+  var secondsPlural = clock.querySelector('.ss');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    daysPlural.classList.toggle('singular', t.days === 1);
+    hoursPlural.classList.toggle('singular', t.hours === 1);
+    minutesPlural.classList.toggle('singular', t.minutes === 1);
+    secondsPlural.classList.toggle('singular', t.seconds === 1);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse('2018-12-17'));
+initializeClock('cuntdown', deadline);
+
+</script>
+<br><br><br><br><br>
+<footer>
+  <a href="https://www.businessinsider.com/tumblr-alternatives-that-allow-nsfw-2018-12?r=US&IR=T">tumblr alternatives - Business Insider</a><br>
+  <br>
+  Note: This site is not associated with the website this open letter is targeted to.<br>
+  <br>
+  Share your thoughts?<br>
+  <a>#tumblrgeddon</a><br>
+  Got feedback? Wanna add something?<br>
+  Mail to <a href="mailto:non-creative-mail-name@tumbl.rip">i-wanna-use-this-service-in-the-future-too@tumbl.rip</a> or any other mail address at this domain.
+
+</footer>
+</body>
+</html>
